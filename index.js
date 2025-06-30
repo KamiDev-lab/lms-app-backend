@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://lms-app-frontend-17m8.vercel.app/",
     credentials:true
 }));
  
@@ -37,5 +37,7 @@ app.use("/api/v1/progress", courseProgressRoute);
 app.listen(PORT, () => {
     console.log(`Server listen at port ${PORT}`);
 })
+
+export default app;
 
 
