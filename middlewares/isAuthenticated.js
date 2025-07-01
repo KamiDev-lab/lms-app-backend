@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+const jwt = require("jsonwebtoken");
 
 const isAuthenticated = async (req, res, next) => {
   try {
@@ -9,6 +9,7 @@ const isAuthenticated = async (req, res, next) => {
         success: false,
       });
     }
+
     const decode = await jwt.verify(token, process.env.SECRET_KEY);
     if (!decode) {
       return res.status(401).json({
@@ -16,10 +17,16 @@ const isAuthenticated = async (req, res, next) => {
         success: false,
       });
     }
+
     req.id = decode.userId;
     next();
   } catch (error) {
     console.log(error);
+    return res.status(500).json({
+      message: "Authentication error",
+      success: false,
+    });
   }
 };
-export default isAuthenticated;
+
+module.exports = isAuthenticated;

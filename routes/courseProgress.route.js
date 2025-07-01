@@ -1,7 +1,11 @@
-import express from "express"
-import isAuthenticated from "../middlewares/isAuthenticated.js";
-import { getCourseProgress, markAsCompleted, markAsInCompleted, updateLectureProgress } from "../controllers/courseProgress.controller.js";
-
+const express = require("express");
+const isAuthenticated = require("../middlewares/isAuthenticated");
+const {
+  getCourseProgress,
+  markAsCompleted,
+  markAsInCompleted,
+  updateLectureProgress
+} = require("../controllers/courseProgress.controller");
 const router = express.Router()
 
 router.route("/:courseId").get(isAuthenticated, getCourseProgress);
@@ -9,4 +13,4 @@ router.route("/:courseId/lecture/:lectureId/view").post(isAuthenticated, updateL
 router.route("/:courseId/complete").post(isAuthenticated, markAsCompleted);
 router.route("/:courseId/incomplete").post(isAuthenticated, markAsInCompleted);
 
-export default router;
+module.exports = router;
