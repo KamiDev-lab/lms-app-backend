@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
     "start": "node index.js"
   },
   "keywords": [],
   "author": "Syed Kamran Shah",
   "license": "ISC",
   "description": "Backend server for LMS MERN application",
+   "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cloudinary": "^2.5.1",

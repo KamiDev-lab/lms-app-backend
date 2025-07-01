@@ -28,6 +28,21 @@ app.use(cors({
   credentials: true
 }));
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({
+    message: "LMS API Server is running!",
+    version: "1.0.0",
+    endpoints: {
+      users: "/api/v1/user",
+      courses: "/api/v1/course", 
+      media: "/api/v1/media",
+      purchases: "/api/v1/purchase",
+      progress: "/api/v1/progress"
+    }
+  });
+});
+
 // API routes
 app.use("/api/v1/media", mediaRoute);
 app.use("/api/v1/user", userRoute);

@@ -16,6 +16,8 @@ const {
 } = require("../controllers/course.controller");
 const upload = require("../utils/multer");
 
+const router = express.Router();
+
 
 router.route("/").post(isAuthenticated,createCourse);
 router.route("/search").get(isAuthenticated, searchCourse);

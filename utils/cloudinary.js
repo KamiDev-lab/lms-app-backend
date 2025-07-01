@@ -1,6 +1,7 @@
-import { v2 as cloudinary } from "cloudinary";
-import dotenv from "dotenv";
-dotenv.config({});
+const { v2: cloudinary } = require("cloudinary");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 cloudinary.config({
   api_key: process.env.CLOUDINARY_API_KEY,
@@ -8,7 +9,7 @@ cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
 });
 
-export const uploadMedia = async (file) => {
+const uploadMedia = async (file) => {
   try {
     const uploadResponse = await cloudinary.uploader.upload(file, {
       resource_type: "auto",
@@ -18,7 +19,8 @@ export const uploadMedia = async (file) => {
     console.log(error);
   }
 };
-export const deleteMediaFromCloudinary = async (publicId) => {
+
+const deleteMediaFromCloudinary = async (publicId) => {
   try {
     await cloudinary.uploader.destroy(publicId);
   } catch (error) {
@@ -26,12 +28,16 @@ export const deleteMediaFromCloudinary = async (publicId) => {
   }
 };
 
-export const deleteVideoFromCloudinary = async (publicId) => {
-    try {
-        await cloudinary.uploader.destroy(publicId,{resource_type:"video"});
-    } catch (error) {
-        console.log(error);
-        
-    }
-}
+const deleteVideoFromCloudinary = async (publicId) => {
+  try {
+    await cloudinary.uploader.destroy(publicId, { resource_type: "video" });
+  } catch (error) {
+    console.log(error);
+  }
+};
 
+module.exports = {
+  uploadMedia,
+  deleteMediaFromCloudinary,
+  deleteVideoFromCloudinary,
+};
