@@ -1,6 +1,6 @@
-const { User } = require("../models/user.model");
+const  User  = require("../models/user.model.js");
 const bcrypt = require("bcryptjs");
-const { generateToken } = require("../utils/generateToken");
+const generateToken = require("../utils/generateToken");
 const { deleteMediaFromCloudinary, uploadMedia } = require("../utils/cloudinary");
 
 const register = async (req, res) => {

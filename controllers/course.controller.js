@@ -1,5 +1,5 @@
-const { Course } = require("../models/course.model");
-const { Lecture } = require("../models/lecture.model");
+const  Course  = require("../models/course.model.js");
+const  Lecture  = require("../models/lecture.model");
 const {
   deleteMediaFromCloudinary,
   deleteVideoFromCloudinary,
