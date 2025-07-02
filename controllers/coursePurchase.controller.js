@@ -1,8 +1,8 @@
 const Stripe = require("stripe");
-const { Course } = require("../models/course.model");
-const { CoursePurchase } = require("../models/coursePurchase.model");
-const { Lecture } = require("../models/lecture.model");
-const { User } = require("../models/user.model");
+const  Course  = require("../models/course.model");
+const  CoursePurchase  = require("../models/coursePurchase.model");
+const  Lecture  = require("../models/lecture.model");
+const  User  = require("../models/user.model");
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
