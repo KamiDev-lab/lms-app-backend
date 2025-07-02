@@ -115,6 +115,7 @@ const markAsInCompleted = async (req, res) => {
     const userId = req.id;
 
     const courseProgress = await CourseProgress.findOne({ courseId, userId });
+
     if (!courseProgress)
       return res.status(404).json({ message: "Course progress not found" });
 
