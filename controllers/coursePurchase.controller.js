@@ -37,8 +37,8 @@ const createCheckoutSession = async (req, res) => {
         },
       ],
       mode: "payment",
-      success_url: `https://lms-app-frontend-17m8.vercel.app/${courseId}`,
-      cancel_url: `https://lms-app-frontend-17m8.vercel.app//${courseId}`,
+      success_url: `https://lms-app-frontend-17m8.vercel.app/course-progress/${courseId}`,
+      cancel_url: `https://lms-app-frontend-17m8.vercel.app/course-progress/${courseId}`,
       metadata: {
         courseId: courseId,
         userId: userId,
